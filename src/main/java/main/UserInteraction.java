@@ -1,14 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package main;
 import java.util.Scanner;
 import ayi.webpagecreator.*;
 import java.io.IOException;
+
 public class UserInteraction {
-    public static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
     
     public static void main(String[] args) throws IOException {
         System.out.println("Introduzca la cantidad de paginas a crear: ");
@@ -32,8 +29,8 @@ public class UserInteraction {
         System.out.println("Ingrese el contenido del parrafo: ");
         String paragraphContent = scanner.nextLine();
         Paragraph paragraph = new Paragraph(paragraphContent);        
-        template.addImage(image);
-        template.addParagraphs(paragraph);
+        template.setImage(image);
+        template.setParagraph(paragraph);
         template.setHeader(header);
         return template;
     }
@@ -54,7 +51,7 @@ public class UserInteraction {
             count++;
         }
         newPage.setTitle(t1);
-        newPage.buildPage();
+        newPage.createPage();
     }
     
 

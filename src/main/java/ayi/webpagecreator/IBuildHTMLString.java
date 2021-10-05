@@ -5,10 +5,6 @@
  */
 package ayi.webpagecreator;
 
-/**
- *
- * @author Martincito
- */
-public interface IElementHandle {
-    public void add(String content);
+public interface IBuildHTMLString {
+    public String build();
 }

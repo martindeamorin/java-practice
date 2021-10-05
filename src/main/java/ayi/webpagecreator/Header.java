@@ -9,14 +9,14 @@ package ayi.webpagecreator;
  *
  * @author Martincito
  */
-public class Header implements IElementHandle {
+public class Header extends ElementConstruction {
         private String headerHTML;
         public Header(String header){
             this.add(header);
         }
 
         @Override
-        public void add(String content) {
+        public final void add(String content) {
             this.headerHTML = "<center><h1><font color=\"navy\">" + content + "</font></h1></center>";
         }
         

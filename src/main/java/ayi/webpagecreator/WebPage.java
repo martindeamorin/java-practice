@@ -1,18 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ayi.webpagecreator;
 import java.io.File; 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 
-public class WebPage {
+public class WebPage implements IBuildHTMLString{
     private Title title;
-    private ArrayList<NewsTemplate> templates = new ArrayList<NewsTemplate>();
+    private final ArrayList<NewsTemplate> templates = new ArrayList<>();
     private String body;
     private String html;
     private String head;
@@ -29,28 +23,29 @@ public class WebPage {
         this.title = title;
     }
     
-    public void buildPage() throws IOException {
-        this.body = this.buildBody(this.templates);
-        this.head = this.head.replace("{title}", this.title.getTitleHTML());
-        this.html = "<html>" + this.head + this.body + "</html>";
+    public void createPage() throws IOException {
         FileWriter fileWriter = null;
         try{
             File newPage = new File(title.getContent() + ".html");
             fileWriter = new FileWriter(newPage);
-            fileWriter.write(this.html);  
+            fileWriter.write(this.build());  
             fileWriter.close();
         }catch(IOException err){
-            System.out.println("Algo ha salido mal, intentelo nuevamente");
+            throw new IOException("Algo ha salido mal, intentlo nuevamente");
         }
     }
     
-    private String buildBody(ArrayList<NewsTemplate> templates){
+    @Override
+    public String build() {
         String bodyOpen = "<body bgcolor=\"#99CC99\">";
         String bodyClose = "</body>";
         String bodyContent = "";
-        for (NewsTemplate template : templates) { 		      
-            bodyContent += template.buildTemplate();
+        for (NewsTemplate template : this.templates) { 		      
+            bodyContent += template.build();
         }
-        return bodyOpen + bodyContent + bodyClose;
+        this.body = bodyOpen + bodyContent + bodyClose;
+        this.head = this.head.replace("{title}", this.title.getTitleHTML());
+        this.html = "<html>" + this.head + this.body + "</html>";
+        return this.html;
     }
 }

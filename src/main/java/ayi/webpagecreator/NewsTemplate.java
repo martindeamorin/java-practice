@@ -1,22 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ayi.webpagecreator;
 
-/**
- *
- * @author Martincito
- */
-public class NewsTemplate {
+
+public class NewsTemplate implements IBuildHTMLString{
     private Header header;
     private Image image;
     private Paragraph paragraph;
     
     public NewsTemplate(){}
         
-    public void addImage(Image image){
+    public void setImage(Image image){
         this.image = image;
     }
     
@@ -24,11 +16,12 @@ public class NewsTemplate {
         this.header = header;
     }
     
-    public void addParagraphs(Paragraph paragraph){
+    public void setParagraph(Paragraph paragraph){
         this.paragraph = paragraph;
     }
     
-    public String buildTemplate(){
+    @Override
+    public String build(){
         return this.header.getHeaderHTML() + this.image.getImageHTML() + this.paragraph.getParagraphHTML();
     }
 }
