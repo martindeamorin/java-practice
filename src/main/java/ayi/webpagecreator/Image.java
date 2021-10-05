@@ -1,6 +1,6 @@
 package ayi.webpagecreator;
 
-public class Image extends ElementConstruction {
+public class Image extends ElementConstructor {
     private String imageHTML;
     public Image(String url){
         this.add(url);

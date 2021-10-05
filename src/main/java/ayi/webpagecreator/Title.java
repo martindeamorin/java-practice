@@ -1,6 +1,6 @@
 package ayi.webpagecreator;
 
-public class Title extends ElementConstruction {
+public class Title extends ElementConstructor {
         private String titleHTML;
         private String content;
         public Title(String title){

@@ -42,7 +42,7 @@ public class UserInteraction {
         String titleContent = scanner.nextLine();
         Title t1 = new Title(titleContent);
         
-        System.out.println("Introduzca la cantidad de noticias a argegar: ");
+        System.out.println("Introduzca la cantidad de noticias a agregar: ");
         int templates = Integer.parseInt(scanner.nextLine());
         int count = 0;
         while(count < templates){

@@ -9,7 +9,7 @@ package ayi.webpagecreator;
  *
  * @author Martincito
  */
-public class Header extends ElementConstruction {
+public class Header extends ElementConstructor {
         private String headerHTML;
         public Header(String header){
             this.add(header);

@@ -1,7 +1,7 @@
 package ayi.webpagecreator;
 
 
-public class Paragraph extends ElementConstruction {
+public class Paragraph extends ElementConstructor {
         private String paragraphHTML;
         public Paragraph(String paragraph){
             this.add(paragraph);
